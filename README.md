@@ -94,19 +94,9 @@ I will now try to cover up all steps necessary from the beginning to the end to 
 **If you run into any errors during this tutorial (and you probably will) please check the [Troubleshooting section](#troubleshooting).**
 
 ## Set up TensorFlow
-If a technical recruiter ever asks me:
+I will now show you how to install the TensorFlow 'models' repository on Windows 10 and Linux. I have done SSD and RCNN training on my local Ubuntu setup equipped with GPU. If you don't have a powerful GPU on your local machine I strongly recommend you to do the training on an AWS spot instance because this will save you a lot of time. 
 
->_"Describe the toughest technical problem you've worked on."_
-
-my answer definitely will be:
-
-> _"Get TensorFlow to work!"_
-
-Seriously, if someone from the TensorFlow team is reading this: Clean up your folder structure, use descriptive folder names, merge your READMEs and - more importantly - **fix your library!!!**
-
-But enough of Google bashing - they're doing a good job but the library still has teething troubles (and an user-**un**friendly installation setup).
-
-I will now show you how to install the TensorFlow 'models' repository on Windows 10 and Linux. The Linux setup is easier and if you don't have a powerful GPU on your local machine I strongly recommend you to do the training on an AWS spot instance because this will save you a lot of time. However, you can do the basic stuff like data preparation and data preprocessing on your local machine but I suggest doing the training on an AWS instance. I will show you how to set up the training environment in the [Training section][training section].
+However, you can do the basic stuff like data preparation and data preprocessing on your local machine but I suggest doing the training on an AWS instance. I will show you how to set up the training environment in the [Training section][training section].
 
 ### Windows 10
 1. Install TensorFlow version 1.4 by executing the following statement in the Command Prompt (this assumes you have python.exe set in your PATH environment variable)
@@ -149,6 +139,9 @@ I will now show you how to install the TensorFlow 'models' repository on Windows
 
 Source: [cdahms' question/tutorial on Stackoverflow][cdahms question].
 
+### My Linux (Ubuntu) Setup
+
+
 ### Linux
 1. Install TensorFlow version 1.4 by executing 
     ```
@@ -182,14 +175,16 @@ Source: [cdahms' question/tutorial on Stackoverflow][cdahms question].
     ```
 
 ## Datasets
-As always in deep learning: Before you start coding you need to gather the right datasets. For this project, you will need images of traffic lights with labeled bounding boxes.
-In sum there are 4 datasets you can use:
+In deep learning, before you start coding you need to gather the right datasets. For this project, you will need images of traffic lights with labeled bounding boxes.
+
+There are 4 datasets which can be used:
 1. [Bosch Small Traffic Lights Dataset][bosch dataset]
 2. [LaRA Traffic Lights Recognition Dataset][lara dataset]
 3. Udacity's ROSbag file from Carla
 4. Traffic lights from Udacity's simulator
 
-I ended up using Udacity's ROSbag file from Carla only and if you carefully follow along with this tutorial the images from the ROSbag file will be enough to have a working classifier for real-world AND simulator examples. There are two approaches on how to get the data from the ROSbag file (and from Udacity's simulator):
+#### Note:
+Udacity SDC students ended up using Udacity's ROSbag file from Carla only and if you carefully follow along with this tutorial the images from the ROSbag file will be enough to have a working classifier for real-world AND simulator examples. There are two approaches on how to get the data from the ROSbag file (and from Udacity's simulator):
 
 ### 1. The Lazy Approach
 You can download Vatsal Srivastava's dataset and my dataset for this project. The images are already labeled and a [TFRecord file][tfrecord file] is provided as well:
@@ -197,9 +192,7 @@ You can download Vatsal Srivastava's dataset and my dataset for this project. Th
 1. [Vatsal's dataset][coldknight dataset]
 2. [My dataset][alex lechner dataset]
 
-Both datasets include images from the ROSbag file and from the Udacity Simulator.
-
-My dataset is a little sparse (at least the amount of yellow traffic lights is small) but Vatsal's dataset has enough images to train. However, I encourage you to use both. For example, I used Vatsal's data for training and mine for evaluation.
+In our work we adopt lazy approach to avoid lengthy image processing steps and directly pick Vatsal/Alex pre-processes data. Both datasets include images from the ROSbag file and from the Udacity Simulator. I have used Vatsal's data for training and Alex for evaluation.
 
 ### 2. The Diligent Approach
 If you have enough time, love to label images, read tutorials about traffic light classification before this one or want to gather more data, then this is the way to go:
@@ -298,9 +291,7 @@ path/to
 │   └──labels
 │      │   ...
 
-```
-
-**Important note about the dataset from Bosch**: This dataset is very large in size because every image takes approximately 1 MB of space. However, I've managed to reduce the size of each image **drastically** by simply converting it from a .png file to a .jpg file (for some reason the people from Bosch saved all images as PNG). You want to know what I mean by 'drastically'? Before the conversion from PNG to JPEG, my .record file for the test set was **11,3 GB** in size. After the conversion, my .record file for the test set was only **842 MB** in size. I know... :open_mouth: :open_mouth: :open_mouth: Trust me, I've checked the code and images and tested my script multiple times until I was finally convinced. The image conversion is already implemented in the [``create_tf_record.py``][create_tf_record] file. 
+``` 
 
 ## Training
 
@@ -314,6 +305,7 @@ So far you should have a TFRecord file of the dataset(s) which you have either d
 
 Our team ended up using **SSD Inception V2 Coco (17/11/2017)** because it has good results for its performance.
 
+#### Note:
 You may ask yourself why the date after the model's name is important. As I've mentioned in the [TensorFlow set up section][set up tensorflow] above, it's very important to check out a specific commit from the 'models' repository because the team has fixed broken models. That's why it is important. And if you don't want to see the following results after a very long training session I encourage you to stick to the newest models or the ones I've linked above:
 
 ![bad performance][bad performance]
