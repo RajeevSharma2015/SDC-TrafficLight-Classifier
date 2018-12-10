@@ -24,7 +24,8 @@ The goals/steps of this project are the following:
 [faster rcnn]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 [labeling img]: ./imgs/labeling.jpg
 [labelImg]: https://github.com/tzutalin/labelImg
-[simultaneous training]: ./imgs/simultaneous-training.jpg
+[SSD V2 Train]: ./imgs/simultaneous-training.jpg
+[Faster RCNN Train]: ./imgs/simultaneous-training.jpg
 [tf bad perfomance]: ./imgs/tf-bad-performance
 [tfrecord file]: #23-create-a-tfrecord-file
 [clifton pereira]: https://github.com/ExtEng
