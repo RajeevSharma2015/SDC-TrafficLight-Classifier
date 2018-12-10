@@ -12,7 +12,7 @@ The goals/steps of this project are the following:
 * Summarize the results with a written report
 
 [//]: # (References)
-[capstone project]: https://github.com/iburris/CarND-Capstone
+[capstone project]: https://github.com/RajeevSharma2015/Capstone-SDC
 [bosch dataset]: https://hci.iwr.uni-heidelberg.de/node/6132
 [lara dataset]: http://www.lara.prd.fr/benchmarks/trafficlightsrecognition
 [alex lechner dataset]: https://www.dropbox.com/s/vaniv8eqna89r20/alex-lechner-udacity-traffic-light-dataset.zip?dl=0
@@ -24,8 +24,8 @@ The goals/steps of this project are the following:
 [faster rcnn]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 [labeling img]: ./imgs/labeling.jpg
 [labelImg]: https://github.com/tzutalin/labelImg
-[SSD V2 Train]: ./imgs/simultaneous-training.jpg
-[Faster RCNN Train]: ./imgs/simultaneous-training.jpg
+[SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.png
+[Faster RCNN Train]: ./imgs/Faster-RCNN-20k.png
 [tf bad perfomance]: ./imgs/tf-bad-performance
 [tfrecord file]: #23-create-a-tfrecord-file
 [clifton pereira]: https://github.com/ExtEng
