@@ -60,6 +60,7 @@ The goals/steps of this project are the following:
 [ssd udacity]: ./imgs/ssd-udacity-image.jpg
 [ssd simulator]: ./imgs/ssd-simulator-image.jpg
 [jupyter notebook]: ./tl_classification.ipynb
+[Rajeev Sharma]: https://www.projectmanagement.com/profile/RajeevSharma1
 
 ---
 
@@ -88,7 +89,7 @@ The goals/steps of this project are the following:
 
 ## Introduction
 
-The objective of this project was to retrain a TensorFlow model on images of traffic lights in their different light states (RED, GREEN, YELLOW & NOLIGHT). The trained model was then used in final "capstone project of Udacity SDC Nanodegree Program" as a frozen inference graph by IndiConcept team (Rajeev & Malik).
+The objective of this project was to retrain a TensorFlow model on images of traffic lights in their different light states (red, green, yellow & nolight). The trained model was then used in final " [capstone project] of Udacity SDC Nanodegree Program" as a frozen inference graph by IndiConcept team ( [Rajeev Sharma] & Malik ).
 
 IndiConcept team project can be found here: [Drive Safely Capstone Project][capstone project]
 
@@ -104,6 +105,15 @@ Setting up a training environment is not easy in evolving OS/SW packages era. Mo
 I will now show you how to install the TensorFlow 'models' repository on Windows 10 and Linux. I have done SSD and RCNN training on my local Ubuntu setup equipped with GPU. If you don't have a powerful GPU on your local machine I strongly recommend you to do the training on an AWS spot instance because this will save you a lot of time. 
 
 However, you can do the basic stuff like data preparation and data preprocessing on your local machine but I suggest doing the training on an AWS instance. I will show you how to set up the training environment in the [Training section][training section].
+
+#### Note
+* Carla testing setup enabled by Tensorflow 1.4 version
+* So final inference graph need to be freeze on same version - if want to load and test on a compatible environment. 
+* Meanwhile, a lot of incremental verson - CPU & GPU enabled released
+* Tensorflw-GPU for python3.6 and ubuntu18.04 works well for object classification. However same need to freez on tensorflow==1.4 to launch on Carla car.
+* Ubuntu setup and train instruction are for advance versions of tensorflow (as per my machine)
+* Window setup instruction are guiding for tensorflow==1.4 (instructions as per Alex tutorial)
+* AWS setup instruction is based on Udacity AMI (instruction as per Alex tutorial)
 
 ### Windows 10
 1. Install TensorFlow version 1.4 by executing the following statement in the Command Prompt (this assumes you have python.exe set in your PATH environment variable)
@@ -409,15 +419,18 @@ To set up an AWS spot instance do the following steps:
     ```
     python train.py --logtostderr --train_dir=./models/train --pipeline_config_path=./config/your_tensorflow_model.config
     ```
+
 #### SSD & RCNN Training Reference's (On my setup)
-I have trained 4 different model's:
+I have trained 4 different model's and tried in Capstone project:
+
 * 1. SSD v2 inception coco simulation (20K steps)
 * 2. SSD v2 inception coco udacity (20K steps)
 * 3. Faster RCNN inception coco (10K steps)
 * 4. Faster RCNN inception coco (20K steps)
 
-Refence image for 20k training completion - [SSD V2 Train] 
-Reference image for 20k training completion - [Faster RCNN Train]
+Refence image for 20k training completion - ![SSD V2 Train] 
+Reference image for 20k training completion - ![Faster RCNN Train]
+
 
 ### 5. Freezing the graph
 When training is finished the trained model needs to be exported as a frozen inference graph. Udacity's Carla has TensorFlow Version 1.3 installed. However, the minimum version of TensorFlow needs to be Version 1.4 in order to freeze the graph but note that this does not raise any compatibility issues. 
