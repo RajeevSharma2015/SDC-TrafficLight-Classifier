@@ -509,13 +509,18 @@ This error occurs when you don't have enough free available memory on your GPU t
 
 Then kill the process by executing ``sudo kill -9 <PID-to-kill>``
 
+* tensorflow-gpu training in between core dump [Faster RCNN inception V2 coco]
+  You can decrease ``batch_size: 3`` to ``batch_size: 2`` or lower to 1. It depends how powerful GPU your local machine has. If it is Nvidia Geforce 1060 than i recommend to keep batch size: 1. A workable configuration file is available in ./config path
+
+* tensorflow-gpu during training running out of resources [SSD inception V2 coco]
+  You can decrease ``batch_size: 24`` to ``batch_size: 14`` or lower to 12. It depends how powerful GPU your local machine has. If it is Nvidia Geforce 1060 than i recommend to keep batch size: 14. A workable configuration file is available in ./config path   
 
 ## Summary
-If you are using Vatsal's and my dataset you only need to:
+In IndiConcept team traffic classifier traning, we prefer to use earlier labeled dataset of Udacity. Since we lost a lot of time earlier in resolving platform dependencies so prefer to take a Lazy approach on Vatsal's and Alex's dataset:
 1. [Download the datasets](#1-the-lazy-approach)
 2. [Set up TensorFlow **only on the training instance**, do the training and export the model][training section]
 
-If you are using your own dataset you need to:
+There could be alternative approach of using own dataset, and step needs to follow :
 1. [Set up TensorFlow locally][set up tensorflow] (because of creating TFRecord files)
 2. [Create your own datasets](#2-the-diligent-approach)
 3. [Set up TensorFlow again on a training instance (if the training instance is not your local machine), do the training and export the model][training section]
