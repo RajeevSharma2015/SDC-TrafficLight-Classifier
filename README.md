@@ -21,6 +21,7 @@ The goals/steps of this project are the following:
 [daniel stang]: https://medium.com/@WuStangDan/step-by-step-tensorflow-object-detection-api-tutorial-part-1-selecting-a-model-a02b6aabe39e
 [anthony sarkis]: https://codeburst.io/self-driving-cars-implementing-real-time-traffic-light-detection-and-classification-in-2017-7d9ae8df1c58
 [vatsal srivastava]: https://becominghuman.ai/traffic-light-detection-tensorflow-api-c75fdbadac62
+[Alex's Lechner]: https://github.com/alex-lechner/Traffic-Light-Classification
 [faster rcnn]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 [labeling img]: ./imgs/labeling.jpg
 [labelImg]: https://github.com/tzutalin/labelImg
@@ -85,17 +86,15 @@ The goals/steps of this project are the following:
 
 ## Introduction
 
-The objective of this project was to retrain a TensorFlow model on images of traffic lights in their different light states. The trained model was then used in final capstone project of Udacity SDC Nanodegree Program as a frozen inference graph by IndiConcept team (Rajeev & Malik).
+The objective of this project was to retrain a TensorFlow model on images of traffic lights in their different light states (RED, GREEN, YELLOW & NOLIGHT). The trained model was then used in final "capstone project of Udacity SDC Nanodegree Program" as a frozen inference graph by IndiConcept team (Rajeev & Malik).
 
 IndiConcept team project can be found here: [Drive Safely Capstone Project][capstone project]
 
 The following guide is a detailed tutorial on how to set up the traffic light classification project, to (re)train the TensorFlow model, avoid common mistake and options available to achieve objective in different environments. 
 
-As reference I've read [Daniel Stang's][daniel stang], [Anthony Sarkis'][anthony sarkis] and [Vatsal Srivastava's][vatsal srivastava] and [Alex] Medium posts on traffic light classification. I encourage to read through them as well. 
+As reference I've read [Daniel Stang's][daniel stang], [Anthony Sarkis'][anthony sarkis], [Vatsal Srivastava's][vatsal srivastava] and [Alex's Lechner] medium posts on traffic light classification. I encourage to read through them as well. 
 
-Setting up a training environment in ever changing OS/SW packages and retrain the Tensorflow model is a difficult task.
-
-This tutorial is Ubuntu friendly and whole project completed on same setup. Still tried to cover other working environment along with reference of other's work.
+Setting up a training environment is not easy in evolving OS/SW packages era. Moreover, retrain a Tensorflow model is a difficult task. This tutorial is Ubuntu friendly, and our training project completed on same. Still i tried to cover other working environment along with reference of other's work.
 
 **Please check the [Troubleshooting section](#troubleshooting) for common issues**
 
