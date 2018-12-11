@@ -67,8 +67,9 @@ The goals/steps of this project are the following:
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Set up Tensorflow][set up tensorflow]
-    1. [Windows 10](#windows-10)
-    2. [Linux][tf setup linux]
+    1. [Linux][My Ubuntu Setup]
+    2. [Linux][Ubuntu Tensorflow-Gpu]
+    3. [Windows 10](#windows-10)
 3. [Datasets](#datasets)
     1. [The Lazy Approach](#1-the-lazy-approach)
     2. [The Diligent Approach](#2-the-diligent-approach)
@@ -81,10 +82,12 @@ The goals/steps of this project are the following:
     3. [Setup an AWS spot instance](#3-setup-an-aws-spot-instance)
     4. [Training the model](#4-training-the-model)
     5. [Freezing the graph](#5-freezing-the-graph)
-5. [Recommendation: Use SSD Inception V2](#recommendation-use-ssd-inception-v2)
+5. [Recommendation: Models Performance](#Models Performance)
     1. [Conclusion](#conclusion)
 6. [Troubleshooting](#troubleshooting)
 7. [Summary](#summary)
+
+
 
 
 ## Introduction
@@ -101,21 +104,85 @@ Setting up a training environment is not easy in evolving OS/SW packages era. Mo
 
 **Please check the [Troubleshooting section](#troubleshooting) for common issues**
 
+
+
+
 ## Set up TensorFlow
 I will now show you how to install the TensorFlow 'models' repository on Windows 10 and Linux. I have done SSD and RCNN training on my local Ubuntu setup equipped with GPU. If you don't have a powerful GPU on your local machine I strongly recommend you to do the training on an AWS spot instance because this will save you a lot of time. 
 
 However, you can do the basic stuff like data preparation and data preprocessing on your local machine but I suggest doing the training on an AWS instance. I will show you how to set up the training environment in the [Training section][training section].
 
 #### Note
-* Carla testing setup enabled by Tensorflow 1.4 version
+* Carla testing setup enabled by Tensorflow 1.3 version (Tensorflow 1.4 is Ok)
 * So final inference graph need to be freeze on same version - if want to load and test on a compatible environment. 
 * Meanwhile, a lot of incremental verson - CPU & GPU enabled released
-* Tensorflw-GPU for python3.6 and ubuntu18.04 works well for object classification. However same need to freez on tensorflow==1.4 to launch on Carla car.
-* Ubuntu setup and train instruction are for advance versions of tensorflow (as per my machine)
-* Window setup instruction are guiding for tensorflow==1.4 (instructions as per Alex tutorial)
-* AWS setup instruction is based on Udacity AMI (instruction as per Alex tutorial)
+* Tensorflw-GPU for python3.6 and ubuntu18.04 also work well for "object classification". 
+* However train outcome of any other version need to freez on tensorflow==1.4 before launch on Carla car.
+* Ubuntu setup and train instruction, herein are for advance versions of tensorflow-gpu (as per my machine)
+* Window setup instruction guide us for tensorflow==1.4 [as per Alex tutorial]
+* AWS setup guidence is based on Udacity AMI [as per Alex tutorial]
+
+
+
+
+### My Linux (Ubuntu) Setup
+
+My local machine is GPU enabled :
+* Ubuntu - 18.04
+* CUDA - 9.0
+* CuDNN - 7.2
+* Python - 3.6 
+* Having seperate conda env for different tensorflow's is better approach i.e "tensorflow-gpu & tensorflow==1.4"
+
+
+![RajeevMachine-Setup]
+
+
+### Linux (ubuntu): "tensorflow-gpu & object classification" setup
+1. Install TensorFlow-gpu version by executing 
+    ```
+    pip install tensorflow-gpu
+    ```
+ Herein you can verify installation by running a tensorflow test program.
+ ![Tensorflow_GPU_Setup]
+   
+2. Install the following packages 
+    ```
+    sudo apt-get install protobuf-compiler python-pil python-lxml python-tk
+    ```
+3. Create a new directory somewhere and name it ``tensorflow``
+4. Clone TensorFlow's *models* repository from the ``tensorflow`` directory by executing 
+    ```
+    git clone https://github.com/tensorflow/models.git
+    ```
+5. Navigate to the ``models`` directory in the Command Prompt and execute 
+    ```
+    git checkout f7e99c0
+    ```
+
+    This is important because the code from the ``master`` branch won't work with TensorFlow version 1.4. Also, this commit has already fixed broken models from previous commits.
+
+6.  Navigate to the ``research`` folder and execute 
+    ```
+    protoc object_detection/protos/*.proto --python_out=.
+
+    export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
+    ```
+7.  If the step 6 executed without any errors then execute 
+    ```
+    python object_detection/builders/model_builder_test.py
+    ```
+
+
+#### Note
+* Point 6 configuration always need to set before before using "Obect classification" library 
+* This can be configured through script/setup or bashprofile
+
+
 
 ### Windows 10
+Windows setup is for older version of tensorflow, also supported in Udacity program. In our project work we haven't done any activity on window's setup. This section is for convenience of student who wants to work in this environment.  
+
 1. Install TensorFlow version 1.4 by executing the following statement in the Command Prompt (this assumes you have python.exe set in your PATH environment variable)
     ```
     pip install tensorflow==1.4
@@ -155,49 +222,6 @@ However, you can do the basic stuff like data preparation and data preprocessing
     ![path variable][path variable win]
 
 Source: [cdahms' question/tutorial on Stackoverflow][cdahms question].
-
-### My Linux (Ubuntu) Setup
-My local machine is GPU enabled - Ubuntu(18.04), CUDA(9.0)/CuDNN(7.2) and Python(3.6) in a conda env.
-
-![RajeevMachine-Setup]
-
-### Linux (ubuntu): "tensorflow-gpu & object classification" setup
-1. Install TensorFlow-gpu version by executing 
-    ```
-    pip install tensorflow-gpu
-    ```
- Herein you can verify installation by running a tensorflow test program.
- ![Tensorflow_GPU_Setup]
-   
-2. Install the following packages 
-    ```
-    sudo apt-get install protobuf-compiler python-pil python-lxml python-tk
-    ```
-3. Create a new directory somewhere and name it ``tensorflow``
-4. Clone TensorFlow's *models* repository from the ``tensorflow`` directory by executing 
-    ```
-    git clone https://github.com/tensorflow/models.git
-    ```
-5. Navigate to the ``models`` directory in the Command Prompt and execute 
-    ```
-    git checkout f7e99c0
-    ```
-
-    This is important because the code from the ``master`` branch won't work with TensorFlow version 1.4. Also, this commit has already fixed broken models from previous commits.
-
-6.  Navigate to the ``research`` folder and execute 
-    ```
-    protoc object_detection/protos/*.proto --python_out=.
-
-    export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim
-    ```
-7.  If the step 6 executed without any errors then execute 
-    ```
-    python object_detection/builders/model_builder_test.py
-    ```
-
-#### Note
-If #6 path is not set in bash/sh profile ofshell then every time before using "Obect classification" library you need to set path mentioned in #6
 
 
 ## Datasets
@@ -364,7 +388,7 @@ For Faster RCNN Inception V2:
     }
     ```
 
-2. You can increase ``batch_size: 1`` to ``batch_size: 3`` or even higher (as per machine capability)
+2. You can increase ``batch_size: 1`` to ``batch_size: 3`` or even higher (as per your machine capability)
 
 
 If you don't want to use evaluation/validation in your training, simply remove those blocks from the config file. However, if you do use it make sure to set ``num_examples`` in the ``eval_config`` block to the sum of images in your .record file.
@@ -444,12 +468,11 @@ To freeze the graph:
 
     This will freeze and output the graph as ``frozen_inference_graph.pb``.
 
-## Recommendation: Use SSD Inception V2
-At first, our team was using Faster RCNN Inception V2 model. This model takes about 2.9 seconds to classify images which is - besides the name of the model - not that fast. The advantage about training the Faster RCNN Inception V2 is the generalization of the model to new, different & unseen images which means the model was only trained on the image data of Udacity's parking lot and was able to classify the light state of the traffic lights in the simulator too. So why did we change the model to SSD Inception V2? 
 
-Our code was successfully tested on Carla but it failed in the simulator. This might sound funny - and it actually is - but the reason why it failed is that the frequency of changing lights in the simulator is set ridiculously high so the light was changing every 2 - 3 seconds. The configuration of our traffic light detector node in our project is set to 3 consecutive images of traffic lights until the final state (Red, Green, Yellow or Unknown) and action is passed to the agent/car. That's the reason why we changed the model from Faster RCNN Inception V2 to SSD Inception V2.
+## Recommendation: Models Performance
+Use SSD Inception V2
+At first, our team was using Faster RCNN Inception V2 model.
 
-The good thing about SSD Inception V2 is its speed and performance. Sometimes the SSD model misses to classify an image with over 50% certainty but in general, it is doing a good job for its performance. However, unlike the Faster RCNN Inception V2 the model does not a good job of classifying new, different images. For example, I've trained the SSD model first on Udacity's parking lot data with 10.000 steps and it did a good job on classifying the parking lot traffic lights but the model did not classify a single image from the simulator data. After the training, I did transfer learning on the simulator data with 10.000 steps as well. After the training something interesting happened: The model was able to classify the simulator data BUT the model "forgot" about its previous training on the Udacity parking lot data and therefore only classified 2 out of 10 images from the Udacity parking lot dataset.
 
 ### Conclusion
 Our team is using now 2 trained SSD Inception V2 models for [our Capstone project][capstone project]:
