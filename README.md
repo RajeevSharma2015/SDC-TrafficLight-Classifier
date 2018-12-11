@@ -147,16 +147,18 @@ However, you can do the basic stuff like data preparation and data preprocessing
 Source: [cdahms' question/tutorial on Stackoverflow][cdahms question].
 
 ### My Linux (Ubuntu) Setup
+My local machine is GPU enabled - Ubuntu(18.04), CUDA(9.0)/CuDNN(7.2) and Python(3.6) in a conda env.
 
-[RajeevMachine-Setup]
+![RajeevMachine-Setup]
 
-[Tensorflow_GPU_Setup]
-
-### Linux
+### Linux (ubuntu): "tensorflow-gpu & object classification" setup
 1. Install TensorFlow version 1.4 by executing 
     ```
-    pip install tensorflow==1.4
+    pip install tensorflow-gpu
     ```
+ Herein you can verify installation by running a tensorflow test program.
+ ![Tensorflow_GPU_Setup]
+   
 2. Install the following packages 
     ```
     sudo apt-get install protobuf-compiler python-pil python-lxml python-tk
@@ -183,6 +185,10 @@ Source: [cdahms' question/tutorial on Stackoverflow][cdahms question].
     ```
     python object_detection/builders/model_builder_test.py
     ```
+
+#### Note
+If #6 path is not set in bash/sh profile ofshell then every time before using "Obect classification" library you need to set path mentioned in #6
+
 
 ## Datasets
 In deep learning, before you start coding you need to gather the right datasets. For this project, you will need images of traffic lights with labeled bounding boxes.
