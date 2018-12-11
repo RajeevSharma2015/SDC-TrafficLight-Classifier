@@ -162,7 +162,7 @@ My local machine is GPU enabled - Ubuntu(18.04), CUDA(9.0)/CuDNN(7.2) and Python
 ![RajeevMachine-Setup]
 
 ### Linux (ubuntu): "tensorflow-gpu & object classification" setup
-1. Install TensorFlow version 1.4 by executing 
+1. Install TensorFlow-gpu version by executing 
     ```
     pip install tensorflow-gpu
     ```
@@ -364,7 +364,7 @@ For Faster RCNN Inception V2:
     }
     ```
 
-2. You can increase ``batch_size: 1`` to ``batch_size: 3`` or even higher
+2. You can increase ``batch_size: 1`` to ``batch_size: 3`` or even higher (as per machine capability)
 
 
 If you don't want to use evaluation/validation in your training, simply remove those blocks from the config file. However, if you do use it make sure to set ``num_examples`` in the ``eval_config`` block to the sum of images in your .record file.
@@ -428,8 +428,8 @@ I have trained 4 different model's and tried in Capstone project:
 * 3. Faster RCNN inception coco (10K steps)
 * 4. Faster RCNN inception coco (20K steps)
 
-Refence image for 20k training completion - ![SSD V2 Train] 
-Reference image for 20k training completion - ![Faster RCNN Train]
+Refence image for 20k SSD training completion - ![SSD V2 Train] 
+Reference image for 20k Faster RCNN training completion - ![Faster RCNN Train]
 
 
 ### 5. Freezing the graph
