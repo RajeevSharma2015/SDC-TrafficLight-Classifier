@@ -25,8 +25,10 @@ The goals/steps of this project are the following:
 [faster rcnn]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 [labeling img]: ./imgs/labeling.jpg
 [labelImg]: https://github.com/tzutalin/labelImg
-[SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.png
-[Faster RCNN Train]: ./imgs/Faster-RCNN-20k.png
+[SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.jpg
+[Faster RCNN Train]: ./imgs/Faster-RCNN-20k.jpg
+[RajeevMachine-Setup]: ./imgs/RajeevMachine-Setup.jpg
+[Tensorflow_GPU_Setup]: ./imgs/Tensorflow_GPU_Setup.jpg
 [tf bad perfomance]: ./imgs/tf-bad-performance
 [tfrecord file]: #23-create-a-tfrecord-file
 [clifton pereira]: https://github.com/ExtEng
@@ -146,6 +148,9 @@ Source: [cdahms' question/tutorial on Stackoverflow][cdahms question].
 
 ### My Linux (Ubuntu) Setup
 
+[RajeevMachine-Setup]
+
+[Tensorflow_GPU_Setup]
 
 ### Linux
 1. Install TensorFlow version 1.4 by executing 
