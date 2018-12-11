@@ -85,13 +85,19 @@ The goals/steps of this project are the following:
 
 ## Introduction
 
-The goal of this project was to retrain a TensorFlow model on images of traffic lights in their different light states. The trained model was then used in the final capstone project of the Udacity Self-Driving Car Engineer Nanodegree Program as a frozen inference graph. Our project (and the implementation of the frozen graph) can be found here: [Drive Safely Capstone Project][capstone project]
+The objective of this project was to retrain a TensorFlow model on images of traffic lights in their different light states. The trained model was then used in final capstone project of Udacity SDC Nanodegree Program as a frozen inference graph by IndiConcept team (Rajeev & Malik).
 
-The following guide is a detailed tutorial on how to set up the traffic light classification project, to (re)train the TensorFlow model and to avoid the mistakes I did. For my project I've read [Daniel Stang's][daniel stang], [Anthony Sarkis'][anthony sarkis] and [Vatsal Srivastava's][vatsal srivastava] Medium posts on traffic light classification. I encourage you to read through them as well. However, even though they were comprehensible and gave a basic understanding of the problem the authors still missed the biggest and hardest part of the project: Setting up a training environment and retrain the Tensorflow model.
+IndiConcept team project can be found here: [Drive Safely Capstone Project][capstone project]
 
-I will now try to cover up all steps necessary from the beginning to the end to have a working classifier. Also, this tutorial is Windows-friendly since the project was done on Windows 10 for the most part. I suggest reading through this tutorial first before following along.
+The following guide is a detailed tutorial on how to set up the traffic light classification project, to (re)train the TensorFlow model, avoid common mistake and options available to achieve objective in different environments. 
 
-**If you run into any errors during this tutorial (and you probably will) please check the [Troubleshooting section](#troubleshooting).**
+As reference I've read [Daniel Stang's][daniel stang], [Anthony Sarkis'][anthony sarkis] and [Vatsal Srivastava's][vatsal srivastava] and [Alex] Medium posts on traffic light classification. I encourage to read through them as well. 
+
+Setting up a training environment in ever changing OS/SW packages and retrain the Tensorflow model is a difficult task.
+
+This tutorial is Ubuntu friendly and whole project completed on same setup. Still tried to cover other working environment along with reference of other's work.
+
+**Please check the [Troubleshooting section](#troubleshooting) for common issues**
 
 ## Set up TensorFlow
 I will now show you how to install the TensorFlow 'models' repository on Windows 10 and Linux. I have done SSD and RCNN training on my local Ubuntu setup equipped with GPU. If you don't have a powerful GPU on your local machine I strongly recommend you to do the training on an AWS spot instance because this will save you a lot of time. 
