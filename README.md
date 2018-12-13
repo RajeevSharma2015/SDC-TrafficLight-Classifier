@@ -13,28 +13,44 @@ The goals/steps of this project are the following:
 
 [//]: # (References)
 [capstone project]: https://github.com/RajeevSharma2015/Capstone-SDC
+[Rajeev Sharma]: https://www.projectmanagement.com/profile/RajeevSharma1
+[RajeevMachine-Setup]: ./imgs/RajeevMachine-Setup.jpg
+[Tensorflow_GPU_Setup]: ./imgs/Tensorflow_GPU_Setup.jpg
+[SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.jpg
+[Faster RCNN Train]: ./imgs/Faster-RCNN-20k.jpg
+[Rajeev Ubuntu Setup]: #linux
+[SSD Udacity 20K Steps]: https://drive.google.com/file/d/14O3IpuCKm1ZRdgeqk8RX3lSxCsCgsAN8/view?usp=sharing
+[SSD Simulator 20K Steps]: https://drive.google.com/file/d/13ZexYyCWuM4XeIBsaa7bPN-G20a3wayv/view?usp=sharing
+[FRCN 20k Steps]: https://drive.google.com/file/d/1hvMwgB4Im8UyybpdDchzNqPRru_4b3SJ/view?usp=sharing
+[FRCN 10K Steps]: https://drive.google.com/file/d/1PLp_jA5yilzwK5il5tq-va7wo09HMWIT/view?usp=sharing
+
+
 [bosch dataset]: https://hci.iwr.uni-heidelberg.de/node/6132
 [lara dataset]: http://www.lara.prd.fr/benchmarks/trafficlightsrecognition
 [alex lechner dataset]: https://www.dropbox.com/s/vaniv8eqna89r20/alex-lechner-udacity-traffic-light-dataset.zip?dl=0
 [coldknight dataset]: https://github.com/coldKnight/TrafficLight_Detection-TensorFlowAPI#get-the-dataset
+
+[ssd inception]: http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_11_06_2017.tar.gz 
+[ssd inception 171117]: http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz
+[faster rcnn inception]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
+[faster rcnn resnet101]: http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco_11_06_2017.tar.gz
+
 [coldknight repo]: https://github.com/coldKnight/TrafficLight_Detection-TensorFlowAPI
 [daniel stang]: https://medium.com/@WuStangDan/step-by-step-tensorflow-object-detection-api-tutorial-part-1-selecting-a-model-a02b6aabe39e
 [anthony sarkis]: https://codeburst.io/self-driving-cars-implementing-real-time-traffic-light-detection-and-classification-in-2017-7d9ae8df1c58
 [vatsal srivastava]: https://becominghuman.ai/traffic-light-detection-tensorflow-api-c75fdbadac62
 [Alex's Lechner]: https://github.com/alex-lechner/Traffic-Light-Classification
+
 [faster rcnn]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 [labeling img]: ./imgs/labeling.jpg
 [labelImg]: https://github.com/tzutalin/labelImg
-[SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.jpg
-[Faster RCNN Train]: ./imgs/Faster-RCNN-20k.jpg
-[RajeevMachine-Setup]: ./imgs/RajeevMachine-Setup.jpg
-[Tensorflow_GPU_Setup]: ./imgs/Tensorflow_GPU_Setup.jpg
 [tf bad perfomance]: ./imgs/tf-bad-performance
 [tfrecord file]: #23-create-a-tfrecord-file
 [clifton pereira]: https://github.com/ExtEng
 [ian burris]: https://github.com/iburris
 [label map]: ./data/udacity_label_map.pbtxt
 [set up tensorflow]: #set-up-tensorflow
+
 [create_tf_record]: create_tf_record.py
 [training section]: #training
 [protobuf win]: https://github.com/google/protobuf/releases
@@ -43,32 +59,29 @@ The goals/steps of this project are the following:
 [path variable win]: ./imgs/path-win.jpg
 [models zoo]: https://github.com/tensorflow/models/blob/master/research/object_detection/g3doc/detection_model_zoo.md
 [simultaneous training]: ./imgs/simultaneous-training.jpg
-[ssd inception]: http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_11_06_2017.tar.gz 
-[ssd inception 171117]: http://download.tensorflow.org/models/object_detection/ssd_inception_v2_coco_2017_11_17.tar.gz
-[faster rcnn inception]: http://download.tensorflow.org/models/object_detection/faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
-[faster rcnn resnet101]: http://download.tensorflow.org/models/object_detection/faster_rcnn_resnet101_coco_11_06_2017.tar.gz
+
 [bad performance]: ./imgs/tf-bad-performance.jpg
 [model configs]: https://github.com/tensorflow/models/tree/master/research/object_detection/samples/configs
 [alex lechner model configs]: ./config
 [7-zip win]: https://www.7-zip.org/
 [aws login]: https://console.aws.amazon.com
 [spot instance]: ./imgs/aws-spot-instance.jpg
-[tf setup linux]: #linux
+
 [epratheeban github]: https://github.com/EdjeElectronics/TensorFlow-Object-Detection-API-Tutorial-Train-Multiple-Objects-Windows-10/issues/11
 [aws inbound rules]: ./imgs/aws-inbound-rules.jpg
 [kill memory]: ./imgs/kill-process.jpg
 [ssd udacity]: ./imgs/ssd-udacity-image.jpg
 [ssd simulator]: ./imgs/ssd-simulator-image.jpg
 [jupyter notebook]: ./tl_classification.ipynb
-[Rajeev Sharma]: https://www.projectmanagement.com/profile/RajeevSharma1
+
 
 ---
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Set up Tensorflow][set up tensorflow]
-    1. [Linux][My Ubuntu Setup]
-    2. [Linux][Ubuntu Tensorflow-Gpu]
+    1. [Rajeev Ubuntu Setup](#linux)
+    2. [Ubuntu Tensorflow-Gpu][#linux-tf]
     3. [Windows 10](#windows-10)
 3. [Datasets](#datasets)
     1. [The Lazy Approach](#1-the-lazy-approach)
@@ -444,7 +457,7 @@ To set up an AWS spot instance do the following steps:
     python train.py --logtostderr --train_dir=./models/train --pipeline_config_path=./config/your_tensorflow_model.config
     ```
 
-#### SSD & RCNN Training Reference's (On my setup)
+#### SSD & RCNN Training Reference's (On Rajeev setup)
 I have trained 4 different model's and tried in Capstone project:
 
 * 1. SSD v2 inception coco simulation (20K steps)
@@ -468,47 +481,24 @@ To freeze the graph:
 
     This will freeze and output the graph as ``frozen_inference_graph.pb``.
 
-
-## Recommendation: Models Performance
-Use SSD Inception V2
-At first, our team was using Faster RCNN Inception V2 model.
-
-
 ### Conclusion
-Our team is using now 2 trained SSD Inception V2 models for [our Capstone project][capstone project]:
+Our team is tested all 4 trained models however got better performance withd "SSD Inception V2 models". Roughly in 80% plus cases it do correct identification. 
 
+Now we are using 2 models in our [Capstone project][capstone project]:
 * 1 SSD model for real-world data
 * 1 SSD model for simulator data
-  
-If you are using this approach as well I recommend you to train 2 SSD models simultaneously on an [AWS instance](#3-setup-an-aws-spot-instance). Because the SSD model "forgets" about the old trained data you don't have to do transfer learning and you can safely train 1 model on simulator data and 1 model on real-world data separately (and simultaneously) which will save you a tremendous amount of time.
 
-SSD trained on parking lot images  |  SSD trained on simulator images
-:---------------------------------:|:---------------------------------:
-![ssd udacity][ssd udacity]        | ![ssd simulator][ssd simulator]
+Here is Google Drive link for 4 trained models. 
+* SSD Udacity 20K Steps 
+* SSD Simulator 20K Steps 
+* FRCN 20k Steps 
+* FRCN 10K Steps 
 
 **[Take a look at the Jupyter Notebook][jupyter notebook] to see the results.**
 
-**UPDATE:** At first, I've trained both SSD models with "only" 10.000 steps and the results were okay. In order to have better results, I've trained it for another 10.000 steps so I'd recommend training both models with 20.000 steps in sum. To give you an example: Both SSD models had a problem to classify traffic lights which were far away in the first 10.000 steps session. After training them for another 10.000 steps this problem was solved (and they had a higher certainty in classifying the light state as well).
 
 ## Troubleshooting
 In case you're running into any of the errors listed below, the solutions provided will fix it:
-
-* _ValueError: Tried to convert 't' to a tensor and failed. Error: Argument must be a dense tensor: range(0, 3) - got shape [3], but wanted []._
-
-Go to ``tensorflow/models/research/object_detection/utils`` and edit the ``learning_schedules.py`` file. Go to the line 167 and replace it with:
-```python
-rate_index = tf.reduce_max(tf.where(tf.greater_equal(global_step, boundaries),
-                                      list(range(num_boundaries)),
-                                      [0] * num_boundaries))
-```
-
-source: [epratheeban's answer on GitHub][epratheeban github]
-
-* _ValueError: Protocol message RewriterConfig has no "optimize_tensor_layout" field._
-
-Go to ``tensorflow/models/research/object_detection/`` and edit the  ``exporter.py`` file. Go to line 71 and change ``optimize_tensor_layout`` to ``layout_optimizer``.
-
-If the same error occurs with the message _[...] has no "layout_optimizer" field._ then you have to change ``layout_optimizer`` to ``optimize_tensor_layout``.
 
 * Can't ssh into the AWS instance because of _port 22: Resource temporarily unavailable_
 
@@ -516,13 +506,6 @@ Go to ``Network & Security`` -> ``Security Groups`` -> right click on the securi
 
 ![aws inbound rules][aws inbound rules]
 
-* Can't install packages on Linux because of _dpkg: error: dpkg status database is locked by another process_
-
-This error will probably occur when trying to execute ``sudo apt-get install protobuf-compiler python-pil python-lxml python-tk`` on the AWS spot instance after upgrading tensorflow-gpu to Version 1.4. Execute the following lines and try installing the packages again: 
-```sh
-sudo rm /var/lib/dpkg/lock
-sudo dpkg --configure -a
-```
 
 * _tensorflow.python.framework.errors_impl.InternalError: Dst tensor is not initialized._
 
