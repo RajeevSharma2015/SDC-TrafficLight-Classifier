@@ -18,6 +18,7 @@ The goals/steps of this project are the following:
 [Tensorflow_GPU_Setup]: ./imgs/Tensorflow_GPU_Setup.jpg
 [SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.jpg
 [Faster RCNN Train]: ./imgs/Faster-RCNN-20k.jpg
+[Demo_video]: ./imgs/Demo_video.jpg
 [Rajeev - Ubuntu Setup]: #linux
 [Rajeev - Tensorflow-Gpu]: #linux-tf
 [SSD Udacity 20K Steps]: https://drive.google.com/file/d/14O3IpuCKm1ZRdgeqk8RX3lSxCsCgsAN8/view?usp=sharing
@@ -79,7 +80,7 @@ The goals/steps of this project are the following:
 
 ![IndiConcept - Working Demo]
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc/view?usp=sharing)
+[![Watch the video](![Demo_video])](https://drive.google.com/file/d/1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc/view?usp=sharing)
 
 ## Table of Contents
 1. [Introduction](#introduction)
