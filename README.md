@@ -78,9 +78,9 @@ The goals/steps of this project are the following:
 
 ---
 
-![IndiConcept - Working Demo]
 
-[![Watch the video](![Demo_video])](https://drive.google.com/file/d/1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc/view?usp=sharing)
+[![Watch the video](https://github.com/RajeevSharma2015/SDC-TrafficLight-Classifier/blob/master/imgs/Demo-video.jpg)](https://drive.google.com/file/d/1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc/view?usp=sharing)
+
 
 ## Table of Contents
 1. [Introduction](#introduction)
