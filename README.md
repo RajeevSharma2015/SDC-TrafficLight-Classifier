@@ -18,11 +18,13 @@ The goals/steps of this project are the following:
 [Tensorflow_GPU_Setup]: ./imgs/Tensorflow_GPU_Setup.jpg
 [SSD V2 Train]: ./imgs/SSD-V2-Inception-20k.jpg
 [Faster RCNN Train]: ./imgs/Faster-RCNN-20k.jpg
-[Rajeev Ubuntu Setup]: #linux
+[Rajeev - Ubuntu Setup]: #linux
+[Rajeev - Tensorflow-Gpu]: #linux-tf
 [SSD Udacity 20K Steps]: https://drive.google.com/file/d/14O3IpuCKm1ZRdgeqk8RX3lSxCsCgsAN8/view?usp=sharing
 [SSD Simulator 20K Steps]: https://drive.google.com/file/d/13ZexYyCWuM4XeIBsaa7bPN-G20a3wayv/view?usp=sharing
 [FRCN 20k Steps]: https://drive.google.com/file/d/1hvMwgB4Im8UyybpdDchzNqPRru_4b3SJ/view?usp=sharing
 [FRCN 10K Steps]: https://drive.google.com/file/d/1PLp_jA5yilzwK5il5tq-va7wo09HMWIT/view?usp=sharing
+[IndiConcept - Working Demo]: https://drive.google.com/open?id=1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc
 
 
 [bosch dataset]: https://hci.iwr.uni-heidelberg.de/node/6132
@@ -73,15 +75,15 @@ The goals/steps of this project are the following:
 [ssd udacity]: ./imgs/ssd-udacity-image.jpg
 [ssd simulator]: ./imgs/ssd-simulator-image.jpg
 [jupyter notebook]: ./tl_classification.ipynb
-
-
 ---
+
+![IndiConcept - Working Demo]
 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Set up Tensorflow][set up tensorflow]
-    1. [Rajeev Ubuntu Setup](#linux)
-    2. [Ubuntu Tensorflow-Gpu][#linux-tf]
+    1. [Rajeev - Ubuntu Setup](#linux)
+    2. [Rajeev - Tensorflow-Gpu](#linux-tf)
     3. [Windows 10](#windows-10)
 3. [Datasets](#datasets)
     1. [The Lazy Approach](#1-the-lazy-approach)
@@ -489,10 +491,10 @@ Now we are using 2 models in our [Capstone project][capstone project]:
 * 1 SSD model for simulator data
 
 Here is Google Drive link for 4 trained models. 
-* SSD Udacity 20K Steps 
-* SSD Simulator 20K Steps 
-* FRCN 20k Steps 
-* FRCN 10K Steps 
+* [SSD Udacity 20K Steps] 
+* [SSD Simulator 20K Steps] 
+* [FRCN 20k Steps] 
+* [FRCN 10K Steps] 
 
 **[Take a look at the Jupyter Notebook][jupyter notebook] to see the results.**
 
