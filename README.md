@@ -24,8 +24,7 @@ The goals/steps of this project are the following:
 [SSD Simulator 20K Steps]: https://drive.google.com/file/d/13ZexYyCWuM4XeIBsaa7bPN-G20a3wayv/view?usp=sharing
 [FRCN 20k Steps]: https://drive.google.com/file/d/1hvMwgB4Im8UyybpdDchzNqPRru_4b3SJ/view?usp=sharing
 [FRCN 10K Steps]: https://drive.google.com/file/d/1PLp_jA5yilzwK5il5tq-va7wo09HMWIT/view?usp=sharing
-[IndiConcept - Working Demo]: https://drive.google.com/open?id=1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc
-
+[IndiConcept - Working Demo]: https://drive.google.com/file/d/1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc/view?usp=sharing
 
 [bosch dataset]: https://hci.iwr.uni-heidelberg.de/node/6132
 [lara dataset]: http://www.lara.prd.fr/benchmarks/trafficlightsrecognition
@@ -440,7 +439,7 @@ To set up an AWS spot instance do the following steps:
 2. [Set up TensorFlow for Linux][tf setup linux] (**but skip step one because we've already installed tensorflow-gpu!**)
 3. Clone your classification repository and create the folders ``models`` & ``data`` (in your project folder) if they are not tracked by your VCS.
 4. Upload the datasets to the ``data`` folder 
-    1. If you're using my dataset you can simply execute the following statements in the ``data`` folder: 
+   If you're using my dataset you can simply execute the following statements in the ``data`` folder: 
 
         ```sh
         wget https://www.dropbox.com/s/vaniv8eqna89r20/alex-lechner-udacity-traffic-light-dataset.zip?dl=0
@@ -462,10 +461,10 @@ To set up an AWS spot instance do the following steps:
 #### SSD & RCNN Training Reference's (On Rajeev setup)
 I have trained 4 different model's and tried in Capstone project:
 
-* 1. SSD v2 inception coco simulation (20K steps)
-* 2. SSD v2 inception coco udacity (20K steps)
-* 3. Faster RCNN inception coco (10K steps)
-* 4. Faster RCNN inception coco (20K steps)
+* SSD v2 inception coco simulation (20K steps)
+* SSD v2 inception coco udacity (20K steps)
+* Faster RCNN inception coco (10K steps)
+* Faster RCNN inception coco (20K steps)
 
 Refence image for 20k SSD training completion - ![SSD V2 Train] 
 Reference image for 20k Faster RCNN training completion - ![Faster RCNN Train]
