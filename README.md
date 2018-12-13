@@ -79,6 +79,8 @@ The goals/steps of this project are the following:
 
 ![IndiConcept - Working Demo]
 
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://drive.google.com/file/d/1Du3cXVXHL_ID5WRZXZHLBlgcwzkiq7bc/view?usp=sharing)
+
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Set up Tensorflow][set up tensorflow]
