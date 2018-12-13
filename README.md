@@ -74,6 +74,7 @@ The goals/steps of this project are the following:
 [ssd udacity]: ./imgs/ssd-udacity-image.jpg
 [ssd simulator]: ./imgs/ssd-simulator-image.jpg
 [jupyter notebook]: ./tl_classification.ipynb
+
 ---
 
 ![IndiConcept - Working Demo]
